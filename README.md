@@ -18,4 +18,3 @@ Organizado por revisiones (R0, R1, ...), siguiendo el temario de la profesora:
 ## Git
 https://github.com/isnaval/dam-2ano-acceso-bases-datos.git
 
-K
