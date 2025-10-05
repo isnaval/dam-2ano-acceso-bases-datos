@@ -9,6 +9,7 @@
       <sourceFolder url="file://$MODULE_DIR$/R0/E03-Concesionario" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/R0/E04-Paqueteria" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/R0/E05-Supermercado" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/R1/R1_FicherosTexto" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/R0" />
     </content>
     <orderEntry type="inheritedJdk" />
