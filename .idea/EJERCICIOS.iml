@@ -6,9 +6,13 @@
       <sourceFolder url="file://$MODULE_DIR$/R0 -Repaso-Java-Funcional" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/R0/E01_Animales" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/R0/E02-Pokemon" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/R0/E03-Concesionario" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/R0/E04-Paqueteria" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/R0/E05-Supermercado" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/R0" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="KotlinJavaRuntime" level="project" />
   </component>
 </module>

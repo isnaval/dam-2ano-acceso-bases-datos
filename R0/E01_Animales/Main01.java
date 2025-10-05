@@ -8,7 +8,7 @@ import E01_Animales.model.Animal;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main {
+public class Main01 {
     public static void main(String[] args) {
         Perro perro1 = new Perro("Rex", 5, 25.5, "Labrador");
         Perro perro2 = new Perro("Luna", 3, 15.2, "Beagle");
