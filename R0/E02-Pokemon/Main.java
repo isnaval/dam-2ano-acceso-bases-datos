@@ -50,15 +50,15 @@ public class Main {
         while (continuar) {
             limpiarPantalla();
             System.out.println("\n╔════════════════════════════════════╗");
-            System.out.println("║         MENÚ PRINCIPAL             ║");
-            System.out.println("╚════════════════════════════════════╝");
+            System.out.println("║         MENÚ PRINCIPAL               ║");
+            System.out.println("╚══════════════════════════════════════╝");
             System.out.println("│ 1. 👥 Ver equipo Pokemon");
             System.out.println("│ 2. ⚔️  Batalla Pokemon");
             System.out.println("│ 3. 🏥 Centro Pokemon (Curar)");
             System.out.println("│ 4. 💪 Entrenar Pokemon");
             System.out.println("│ 5. 🏆 Ver medallas");
             System.out.println("│ 6. 🚪 Salir");
-            System.out.println("└────────────────────────────────────");
+            System.out.println("└───────────────────────────────────────");
             System.out.print("\nElige una opción: ");
 
             int opcion = leerOpcion();
@@ -92,8 +92,8 @@ public class Main {
     private static void verEquipo() {
         limpiarPantalla();
         System.out.println("\n╔════════════════════════════════════╗");
-        System.out.println("║         TU EQUIPO POKEMON          ║");
-        System.out.println("╚════════════════════════════════════╝\n");
+        System.out.println("║         TU EQUIPO POKEMON            ║");
+        System.out.println("╚══════════════════════════════════════╝\n");
         jugador.mostrarEquipo();
         esperarEnter();
     }
@@ -101,8 +101,8 @@ public class Main {
     private static void iniciarBatalla() {
         limpiarPantalla();
         System.out.println("\n╔════════════════════════════════════╗");
-        System.out.println("║         BATALLA POKEMON            ║");
-        System.out.println("╚════════════════════════════════════╝\n");
+        System.out.println("║         BATALLA POKEMON              ║");
+        System.out.println("╚══════════════════════════════════════╝\n");
 
         // Verificar si hay Pokemon vivos
         if (!jugador.tienesPokemonVivos()) {
@@ -143,12 +143,12 @@ public class Main {
             System.out.println("\n🔵 Tu " + miPokemon);
             System.out.println("🔴 " + oponente + " salvaje\n");
 
-            System.out.println("┌─── ¿Qué hacer? ───┐");
+            System.out.println("┌─── ¿Qué hacer? ────────────┐");
             System.out.println("│ 1. ⚔️  Atacar");
             System.out.println("│ 2. 💥 Habilidad Especial");
             System.out.println("│ 3. 🛡️  Defender");
             System.out.println("│ 4. 🏃 Huir");
-            System.out.println("└──────────────────┘");
+            System.out.println("└────────────────────────────┘");
             System.out.print("Opción: ");
 
             int accion = leerOpcion();
@@ -212,8 +212,8 @@ public class Main {
     private static void centroPokemon() {
         limpiarPantalla();
         System.out.println("\n╔════════════════════════════════════╗");
-        System.out.println("║         CENTRO POKEMON             ║");
-        System.out.println("╚════════════════════════════════════╝\n");
+        System.out.println("║         CENTRO POKEMON               ║");
+        System.out.println("╚══════════════════════════════════════╝\n");
 
         System.out.println("🏥 Enfermera Joy: ¡Bienvenido!");
         System.out.println("Voy a curar a tus Pokemon...\n");
@@ -235,8 +235,8 @@ public class Main {
     private static void entrenarPokemon() {
         limpiarPantalla();
         System.out.println("\n╔════════════════════════════════════╗");
-        System.out.println("║      ENTRENAMIENTO POKEMON         ║");
-        System.out.println("╚════════════════════════════════════╝\n");
+        System.out.println("║      ENTRENAMIENTO POKEMON           ║");
+        System.out.println("╚══════════════════════════════════════╝\n");
 
         jugador.mostrarEquipo();
         System.out.print("\n¿Qué Pokemon quieres entrenar? (1-" +
@@ -267,8 +267,8 @@ public class Main {
     private static void verMedallas() {
         limpiarPantalla();
         System.out.println("\n╔════════════════════════════════════╗");
-        System.out.println("║         TUS MEDALLAS               ║");
-        System.out.println("╚════════════════════════════════════╝\n");
+        System.out.println("║         TUS MEDALLAS                 ║");
+        System.out.println("╚══════════════════════════════════════╝\n");
 
         System.out.println("Entrenador: " + jugador.getNombre());
         System.out.println("Medallas ganadas: " + jugador.getMedallas());
