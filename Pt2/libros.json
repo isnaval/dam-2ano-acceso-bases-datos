@@ -1,0 +1,13 @@
+[ {
+  "isbn" : "978-1",
+  "titulo" : "Harry Potter",
+  "autor" : "J.K. Rowling",
+  "numeroPaginas" : 223,
+  "anoPublicacion" : 1997
+}, {
+  "isbn" : "978-2",
+  "titulo" : "1984",
+  "autor" : "George Orwell",
+  "numeroPaginas" : 326,
+  "anoPublicacion" : 1949
+} ]
