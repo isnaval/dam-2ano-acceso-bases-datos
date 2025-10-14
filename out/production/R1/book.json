@@ -1,0 +1,65 @@
+[
+  {
+    "isbn": "978-0140449136",
+    "title": "The Odyssey",
+    "author": "Homer",
+    "numPages": 560,
+    "year": 1996
+  },
+  {
+    "isbn": "978-0451524935",
+    "title": "1984",
+    "author": "George Orwell",
+    "numPages": 328,
+    "year": 1950
+  },
+  {
+    "isbn": "978-0061120084",
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "numPages": 336,
+    "year": 2006
+  },
+  {
+    "isbn": "978-0743273565",
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "numPages": 180,
+    "year": 2004
+  },
+  {
+    "isbn": "978-0307277671",
+    "title": "The Road",
+    "author": "Cormac McCarthy",
+    "numPages": 287,
+    "year": 2006
+  },
+  {
+    "isbn": "978-0385472579",
+    "title": "The Things They Carried",
+    "author": "Tim O'Brien",
+    "numPages": 246,
+    "year": 1990
+  },
+  {
+    "isbn": "978-0679783275",
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "numPages": 279,
+    "year": 2000
+  },
+  {
+    "isbn": "978-0451208637",
+    "title": "Crime and Punishment",
+    "author": "Fyodor Dostoevsky",
+    "numPages": 430,
+    "year": 2002
+  },
+  {
+    "isbn": "12-121212-12121-11",
+    "title": "Ejemplo",
+    "author": "Pepe",
+    "numPages": 123,
+    "year": 1999
+  }
+]
