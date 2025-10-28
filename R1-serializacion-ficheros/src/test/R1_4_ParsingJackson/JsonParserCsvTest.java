@@ -1,7 +1,7 @@
-package src.test.R1_4_ParsingJackson;
+package R1_4_ParsingJackson;
 
 import org.junit.jupiter.api.Test;
-import src.main.java.R1_4_ParsingJackson.JsonParserCsv;
+import R1_4_ParsingJackson.JsonParserCsv;
 
 import java.io.IOException;
 

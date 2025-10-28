@@ -1,8 +1,4 @@
-package R2_2_JDBD_SQLite;
-
-import R2_2_JDBD_SQLite.Estudiante;
-import R2_2_JDBD_SQLite.Asignatura;
-import R2_2_JDBD_SQLite.Mascota;
+package R2_2_JDBC_MySQL;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -11,17 +7,21 @@ import java.util.Map;
 import java.util.LinkedHashMap;
 
 public class HogwartsDAO {
-    private static final String URL = "jdbc:sqlite:src/main/resources/hogwarts.db";
+    // ⚠️ Asegúrate que USER y PASS sean tus credenciales de MySQL
+    private static final String URL = "jdbc:mysql://localhost:3306/hogwarts_db";
+    private static final String USER = "root";
+    private static final String PASS = "ismael"; // Tu contraseña
 
     // CONEXIÓN
     public static Connection conectar() {
         Connection conexion = null;
         try {
-            conexion = DriverManager.getConnection(URL);
-            System.out.println("Conexion exitosa a la BBDD SQLite");
+            // Se usa el Driver de MySQL y se pasan URL, USER y PASS
+            conexion = DriverManager.getConnection(URL, USER, PASS);
+            System.out.println("Conexion exitosa a la BBDD MySQL: hogwarts_db");
             return conexion;
         } catch (SQLException e) {
-            System.err.println("Error al conectar SQLite: " + e.getMessage());
+            System.err.println("Error al conectar MySQL. Asegúrate que el servidor esté ON y la BD exista: " + e.getMessage());
             e.printStackTrace();
             return null;
         }
@@ -31,7 +31,7 @@ public class HogwartsDAO {
     // REQUISITOS DE CONSULTA
     // ====================================================================
 
-    // Estudiantes por casa (R1 - Correcto)
+    // Estudiantes por casa (R1 - CORREGIDO: "año_curso" -> "anio_curso")
     public List<Estudiante> consultaEstudiantesPorCasa(Connection conexion, String nombreCasa) {
         String consultaSQL = "SELECT e.* FROM Estudiante e JOIN Casa c ON e.id_casa = c.id_casa WHERE c.nombre_casa = ?";
         List<Estudiante> estudiantes = new ArrayList<>();
@@ -44,7 +44,7 @@ public class HogwartsDAO {
                             resultados.getString("nombre"),
                             resultados.getString("apellido"),
                             resultados.getInt("id_casa"),
-                            resultados.getInt("año_curso"),
+                            resultados.getInt("anio_curso"),
                             resultados.getString("fecha_nacimiento")
                     ));
                 }
@@ -55,10 +55,10 @@ public class HogwartsDAO {
         return estudiantes;
     }
 
-    // Asignaturas Obligatorias (R2 - CORREGIDO: es_obligatoria -> obligatoria)
+    // Asignaturas Obligatorias (R2 - CORREGIDO: "obligatoria" -> "es_obligatoria" en SQL y lectura)
     public List<Asignatura> listadoAsignaturasObligatorias(Connection conexion) {
-        // CORRECCIÓN: Cambiado 'es_obligatoria' a 'obligatoria' para que coincida con la lectura.
-        String consultaSQL = "SELECT * FROM Asignatura WHERE obligatoria = 1";
+        // ✅ CORREGIDO: Usamos el nombre de columna correcto 'es_obligatoria' en el WHERE
+        String consultaSQL = "SELECT * FROM Asignatura WHERE es_obligatoria = 1";
         List<Asignatura> asignaturas = new ArrayList<>();
         try (Statement consulta = conexion.createStatement();
              ResultSet resultados = consulta.executeQuery(consultaSQL)) {
@@ -67,7 +67,7 @@ public class HogwartsDAO {
                         resultados.getString("nombre_asignatura"),
                         resultados.getInt("id_asignatura"),
                         resultados.getString("aula"),
-                        resultados.getBoolean("obligatoria"),
+                        resultados.getBoolean("es_obligatoria"),
                         resultados.getInt("id_profesor")
                 ));
             }
@@ -77,7 +77,7 @@ public class HogwartsDAO {
         return asignaturas;
     }
 
-    // Mascota de un estudiante (R3 - CORREGIDO: nombre -> nombre_mascota)
+    // Mascota de un estudiante (R3 - CORREGIDO: "nombre_mascota" -> "nombre")
     public Mascota obtenerMascota(Connection conexion, String nombreEstudiante, String apellidoEstudiante) {
         String consultaSQL = "SELECT m.* FROM Mascota m JOIN Estudiante e ON m.id_estudiante = e.id_estudiante WHERE e.nombre = ? AND e.apellido = ?";
         Mascota mascota = null;
@@ -88,8 +88,7 @@ public class HogwartsDAO {
                 if (resultados.next()) {
                     mascota = new Mascota(
                             resultados.getInt("id_mascota"),
-                            // CORRECCIÓN: Se asume que la columna del nombre de la mascota se llama 'nombre_mascota'
-                            resultados.getString("nombre_mascota"),
+                            resultados.getString("nombre"),
                             resultados.getString("tipo"),
                             resultados.getInt("id_estudiante")
                     );
@@ -101,7 +100,7 @@ public class HogwartsDAO {
         return mascota;
     }
 
-    // Estudiantes sin mascota (R4 - Correcto)
+    // Estudiantes sin mascota (R4 - CORREGIDO: "año_curso" -> "anio_curso")
     public List<Estudiante> estudiantesSinMascota(Connection conexion) {
         String consultaSQL = "SELECT e.* FROM Estudiante e LEFT JOIN Mascota m ON e.id_estudiante = m.id_estudiante WHERE m.id_mascota IS NULL";
         List<Estudiante> estudiantes = new ArrayList<>();
@@ -113,7 +112,7 @@ public class HogwartsDAO {
                         resultados.getString("nombre"),
                         resultados.getString("apellido"),
                         resultados.getInt("id_casa"),
-                        resultados.getInt("año_curso"),
+                        resultados.getInt("anio_curso"),
                         resultados.getString("fecha_nacimiento")
                 ));
             }
@@ -123,9 +122,8 @@ public class HogwartsDAO {
         return estudiantes;
     }
 
-    // Promedio de calificaciones (R5 - CORREGIDO: Calificaciones -> Calificacion)
+    // Promedio de calificaciones (R5 - Correcto)
     public double promedioCalificaciones(Connection conexion, String nombre, String apellido) {
-        // CORRECCIÓN: Cambiado el nombre de la tabla de 'Calificaciones' (plural) a 'Calificacion' (singular)
         String consultaSQL = "SELECT AVG(c.calificacion) AS promedio FROM Calificacion c JOIN Estudiante e ON c.id_estudiante = e.id_estudiante WHERE e.nombre = ? AND e.apellido = ?";
         double promedio = 0.0;
         try (PreparedStatement consulta = conexion.prepareStatement(consultaSQL)) {
@@ -162,13 +160,12 @@ public class HogwartsDAO {
     // REQUISITOS DE CONSULTA Y MODIFICACIÓN
     // ====================================================================
 
-    // Estudiantes matriculados en una asignatura (R7 - CORREGIDO: a.nombre -> a.nombre_asignatura)
+    // Estudiantes matriculados en una asignatura (R7 - CORREGIDO: "año_curso" y tabla "Estudiante_Asignatura" a "Matricula")
     public List<Estudiante> estudiantesMatriculadosEn(Connection conexion, String nombreAsignatura) {
-        String consultaSQL = "SELECT e.id_estudiante, e.nombre, e.apellido, e.id_casa, e.año_curso, e.fecha_nacimiento " +
-                "FROM Estudiante e JOIN Estudiante_Asignatura ea ON e.id_estudiante = ea.id_estudiante " +
+        String consultaSQL = "SELECT e.id_estudiante, e.nombre, e.apellido, e.id_casa, e.anio_curso, e.fecha_nacimiento " +
+                "FROM Estudiante e JOIN Matricula ea ON e.id_estudiante = ea.id_estudiante " +
                 "JOIN Asignatura a ON ea.id_asignatura = a.id_asignatura " +
-                // CORRECCIÓN: Cambiado 'a.nombre' a 'a.nombre_asignatura'
-                "WHERE a.nombre_asignatura = ?";
+                "WHERE a.nombre_asignatura = ?"; // Ya estaba corregido
 
         List<Estudiante> estudiantes = new ArrayList<>();
 
@@ -181,7 +178,7 @@ public class HogwartsDAO {
                             resultados.getString("nombre"),
                             resultados.getString("apellido"),
                             resultados.getInt("id_casa"),
-                            resultados.getInt("año_curso"),
+                            resultados.getInt("anio_curso"),
                             resultados.getString("fecha_nacimiento")
                     ));
                 }
@@ -192,10 +189,11 @@ public class HogwartsDAO {
         return estudiantes;
     }
 
-    // Insertar nuevo estudiante (R8 - Correcto)
+    // Insertar nuevo estudiante (R8 - CORREGIDO: "año_curso" -> "anio_curso")
     public boolean insertarEstudiante(Connection conexion, String nombre, String apellido, int idCasa) {
-        String insertSQL = "INSERT INTO Estudiante (nombre, apellido, id_casa, año_curso, fecha_nacimiento) " +
-                "VALUES (?, ?, ?, 1, DATE('now'))";
+        // ✅ CORREGIDO: Usamos el nombre de columna correcto 'anio_curso'
+        String insertSQL = "INSERT INTO Estudiante (nombre, apellido, id_casa, anio_curso, fecha_nacimiento) " +
+                "VALUES (?, ?, ?, 1, DATE(NOW()))"; // DATE(NOW()) para MySQL
 
         try (PreparedStatement consulta = conexion.prepareStatement(insertSQL)) {
             consulta.setString(1, nombre);
@@ -208,10 +206,9 @@ public class HogwartsDAO {
         }
     }
 
-    // Modificar el aula de una asignatura (R9 - CORREGIDO: nombre -> nombre_asignatura)
+    // Modificar el aula de una asignatura (R9 - Correcto)
     public boolean modificarAulaAsignatura(Connection conexion, String nombreAsignatura, String nuevaAula) {
-        // CORRECCIÓN: Cambiado 'nombre' a 'nombre_asignatura' en la cláusula WHERE
-        String updateSQL = "UPDATE Asignatura SET aula = ? WHERE nombre_asignatura = ?";
+        String updateSQL = "UPDATE Asignatura SET aula = ? WHERE nombre_asignatura = ?"; // Ya estaba corregido
 
         try (PreparedStatement consulta = conexion.prepareStatement(updateSQL)) {
             consulta.setString(1, nuevaAula);
@@ -223,11 +220,11 @@ public class HogwartsDAO {
         }
     }
 
-    // Desmatricular a un estudiante de una asignatura (R10 - CORREGIDO: nombre -> nombre_asignatura)
+    // Desmatricular a un estudiante de una asignatura (R10 - CORREGIDO: tabla "Estudiante_Asignatura" a "Matricula")
     public boolean desmatricularEstudiante(Connection conexion, String nombreEstudiante, String apellidoEstudiante, String nombreAsignatura) {
-        String deleteSQL = "DELETE FROM Estudiante_Asignatura " +
+        // ✅ CORREGIDO: Usamos el nombre de tabla correcto 'Matricula'
+        String deleteSQL = "DELETE FROM Matricula " +
                 "WHERE id_estudiante = (SELECT id_estudiante FROM Estudiante WHERE nombre = ? AND apellido = ?) " +
-                // CORRECCIÓN: Cambiado 'nombre' a 'nombre_asignatura' en la subconsulta de Asignatura
                 "AND id_asignatura = (SELECT id_asignatura FROM Asignatura WHERE nombre_asignatura = ?)";
 
         try (PreparedStatement consulta = conexion.prepareStatement(deleteSQL)) {
@@ -268,7 +265,7 @@ public class HogwartsDAO {
             // --- PRUEBA 3: Mascota de Hermione Granger ---
             System.out.println("\n--- 3. Mascota de Hermione Granger (R3) ---");
             Mascota mascota = dao.obtenerMascota(conn, "Hermione", "Granger");
-            System.out.println(mascota != null ? "Mascota: " + mascota : "Mascota no encontrada.");
+            System.out.println(mascota != null ? "Mascota: " + mascota.getNombre() : "Mascota no encontrada.");
 
             // --- PRUEBA 4: Estudiantes sin Mascota ---
             System.out.println("\n--- 4. Estudiantes sin Mascota (R4) ---");
@@ -326,7 +323,7 @@ public class HogwartsDAO {
             // Cierre de la conexión al finalizar las pruebas
             try {
                 conn.close();
-                System.out.println("\nConexión SQLite cerrada.");
+                System.out.println("\nConexión MySQL cerrada.");
             } catch (SQLException e) {
                 System.err.println("Error al cerrar la conexión: " + e.getMessage());
             }

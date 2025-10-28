@@ -1,4 +1,4 @@
-package src.main.java.R1_2_Serializacion;
+package R1_2_Serializacion;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -13,15 +13,15 @@ public class JsonSerialize {
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(coche);
         System.out.println("Coche serializado: " + json);
-        mapper.writeValue(new File("coche.json"), json);
-        System.out.println("Fichero coche.json creado");
+        mapper.writeValue(new File("src/main/resources/coche.json"), coche);
+        System.out.println("Fichero src/main/resources/coche.json creado");
     }
 
     public void serilizeCoches(List<Coche> coches) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         String json = mapper.writeValueAsString(coches);
         System.out.println("Coches serializadoJsonSerializeTests: " + json);
-        mapper.writeValue(new File("coches.json"), coches);
-        System.out.println("Fichero coches.json creado");
+        mapper.writeValue(new File("src/main/resources/coches.json"), coches);
+        System.out.println("Fichero src/main/resources/coches.json creado");
     }
 }

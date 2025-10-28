@@ -1,4 +1,4 @@
-package R2_2_JDBD_SQLite;
+package R2_2_JDBC_MySQL;
 
 public class Mascota {
     private int id;

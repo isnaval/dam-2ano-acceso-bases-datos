@@ -1,7 +1,7 @@
-package src.test.R1_3_Deserializacion;
+package R1_3_Deserializacion;
 
-import org.testng.annotations.Test;
-import src.main.java.R1_3_Deserializacion.JsonCsv;
+import org.junit.jupiter.api.Test;
+import R1_3_Deserializacion.JsonCsv;
 
 import java.io.IOException;
 

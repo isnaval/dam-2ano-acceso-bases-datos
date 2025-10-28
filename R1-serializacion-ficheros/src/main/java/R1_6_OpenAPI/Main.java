@@ -1,4 +1,4 @@
-package src.main.java.R1_6_OpenAPI;
+package R1_6_OpenAPI;
 
 import java.io.IOException;
 import java.util.List;

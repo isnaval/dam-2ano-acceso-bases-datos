@@ -1,4 +1,4 @@
-package src.main.java.R1_2_Serializacion;
+package R1_2_Serializacion;
 
 public class Coche {
     private Long id;

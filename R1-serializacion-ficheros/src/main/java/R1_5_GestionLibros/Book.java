@@ -1,4 +1,4 @@
-package src.main.java.R1_5_GestionLibros;
+package R1_5_GestionLibros;
 
 public class Book {
     private String isbn;

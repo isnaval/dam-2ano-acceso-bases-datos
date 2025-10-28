@@ -5,6 +5,9 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/R1-serializacion-ficheros/pom.xml" />
+        <option value="$PROJECT_DIR$/R2-jdbc/pom.xml" />
+        <option value="$PROJECT_DIR$/R3-hibernate-jpa/pom.xml" />
       </list>
     </option>
   </component>
