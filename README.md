@@ -1,20 +1,48 @@
-# DAM 2Âº AÃ±o - Acceso a Bases de Datos
+# ?? DAM 2º Año - Acceso a Bases de Datos
 
-## DescripciÃ³n
-Repositorio para proyectos y ejercicios de la asignatura **Acceso a Bases de Datos** del ciclo DAM (Desarrollo de Aplicaciones Multiplataforma), 2Âº aÃ±o.
+Proyecto de ejercicios del módulo de Acceso a Datos organizados por bloques temáticos.
 
-## Estructura
-Organizado por revisiones (R0, R1, ...), siguiendo el temario de la profesora:
-- **R0/**: Primera revisiÃ³n 
-- **R1/**: Segunda revisiÃ³n 
-- ...
-- Cada R contiene subcarpetas para proyectos y ejercicios especÃ­ficos.
+## ??? Estructura del Proyecto
 
-## Notas
-- Lenguaje principal: **Java** con **SQL** para bases de datos (MySQL/PostgreSQL).
-- Usa Git para subir cambios poco a poco: commit por ejercicio.
-- Actualizado por Ãºltima vez: 04/10/2025.
+### Módulos Principales
 
-## Git
-https://github.com/isnaval/dam-2ano-acceso-bases-datos.git
+- **`common-utils/`** - Utilidades compartidas (HibernateUtil, DatabaseUtil, etc.)
+- **`R1-serializacion-ficheros/`** - Serialización, JSON, XML y gestión de ficheros
+- **`R2-jdbc/`** - Acceso a bases de datos con JDBC (MySQL y SQLite)
+- **`R3-hibernate-jpa/`** - ORM con Hibernate y JPA
 
+## ?? Compilar y Ejecutar
+
+### Compilar todo el proyecto
+```bash
+mvn clean install
+```
+
+### Compilar un módulo específico
+```bash
+cd R1-serializacion-ficheros
+mvn clean compile
+```
+
+### Ejecutar ejercicios
+```bash
+cd R1-serializacion-ficheros
+mvn exec:java -Dexec.mainClass="es.dam.r1.jackson.Main"
+```
+
+## ??? Tecnologías
+
+- Java 17
+- Maven (multi-módulo)
+- Hibernate 6.x / JPA
+- MySQL / SQLite
+- Jackson / Gson (JSON)
+- JUnit 5 (testing)
+
+## ?? Documentación
+
+Ver la carpeta `docs/` para más información.
+
+## ????? Autor
+
+Proyecto educativo - DAM 2º Año

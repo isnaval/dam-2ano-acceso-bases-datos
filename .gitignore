@@ -1,0 +1,78 @@
+# ==============================
+# CONFIGURACIÓN DE IDEs
+# ==============================
+# IntelliJ / JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+# Visual Studio Code
+.vscode/
+# Eclipse (por si se abre accidentalmente)
+.classpath
+.project
+.settings/
+
+# ==============================
+# MAVEN Y BUILD SYSTEMS
+# ==============================
+target/
+out/
+build/
+# Archivos temporales de versiones de Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+
+# ==============================
+# ARCHIVOS COMPILADOS / DEPLOY
+# ==============================
+*.class
+*.jar
+*.war
+*.ear
+
+# ==============================
+# LOGS Y TEMPORALES
+# ==============================
+*.log
+logs/
+*.tmp
+*.bak
+*.swp
+*~
+# Archivos meta o generados por herramientas
+*.meta
+
+# ==============================
+# BASES DE DATOS LOCALES
+# ==============================
+*.db
+*.sqlite
+*.sql
+# Excepto si están en recursos del proyecto (ej: data de ejemplo)
+!src/main/resources/**/*.db
+!src/main/resources/**/*.sql
+
+# ==============================
+# CONFIGURACIONES SENSIBLES
+# ==============================
+*-local.properties
+*.env
+.env
+*.secret
+*.local
+
+# ==============================
+# ARCHIVOS DEL SISTEMA OPERATIVO
+# ==============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# DOCUMENTACIÓN Y ARCHIVOS PERSONALES
+# ==============================
+docs/
+estructura-proyecto.txt
+*.md~
