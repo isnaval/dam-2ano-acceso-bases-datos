@@ -5,15 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51ec8bc3-787a-4d79-a6a0-52a3709bbacb" name="Changes" comment="Actualización ejercicios">
-      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_4_OpenAPI/ApiService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_4_OpenAPI/CsvExporter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_4_OpenAPI/DbExporter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_4_OpenAPI/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_4_OpenAPI/SqlExporter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_4_OpenAPI/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/test/java/ApiServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_5_DynamicAPI/DynamicApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_5_DynamicAPI/DynamicCsvExporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_5_DynamicAPI/DynamicDbExporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_5_DynamicAPI/DynamicSqlExporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_5_DynamicAPI/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_5_DynamicAPI/SchemaAnalyzer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R2-jdbc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/R2-jdbc/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +70,7 @@
     "Application.Main_R15.executor": "Run",
     "Application.R1_FicherosTexto_04.executor": "Run",
     "Application.R1_FicherosTexto_08.executor": "Run",
+    "Application.R2_5_DynamicAPI.Main.executor": "Run",
     "Application.exportador.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in Pt2.executor": "Run",
@@ -109,7 +108,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ApiServiceTest">
+  <component name="RunManager" selected="Application.R2_5_DynamicAPI.Main">
     <configuration name="ExportadorDatos" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="exportador.ExportadorDatos" />
       <module name="R2-jdbc" />
@@ -149,12 +148,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="exportador" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="R2_3_BBDD_From_SQL.exportador" />
+    <configuration name="R2_5_DynamicAPI.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="R2_5_DynamicAPI.Main" />
       <module name="R2-jdbc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="R2_3_BBDD_From_SQL.*" />
+          <option name="PATTERN" value="R2_5_DynamicAPI.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -173,11 +172,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.R2_5_DynamicAPI.Main" />
         <item itemvalue="JUnit.ApiServiceTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.R2_3_BBDD_From_SQL.ExportadorDatos" />
         <item itemvalue="Application.ExportadorDatos" />
-        <item itemvalue="Application.exportador" />
       </list>
     </recent_temporary>
   </component>
@@ -213,7 +212,7 @@
       <workItem from="1761659051709" duration="100000" />
       <workItem from="1761659162726" duration="1111000" />
       <workItem from="1761669447877" duration="5605000" />
-      <workItem from="1761725861431" duration="4005000" />
+      <workItem from="1761725861431" duration="5542000" />
     </task>
     <task id="LOCAL-00001" summary="Actualización ejercicios">
       <option name="closed" value="true" />
@@ -223,7 +222,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760371818472</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Actualización ejercicios">
+      <option name="closed" value="true" />
+      <created>1761732576765</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1761732576765</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
