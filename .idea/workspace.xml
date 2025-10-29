@@ -5,38 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51ec8bc3-787a-4d79-a6a0-52a3709bbacb" name="Changes" comment="Actualización ejercicios">
-      <change afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/test/R1_2_Serializacion/JsonSerializeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_3_BBDD_From_SQL/ExportadorDatos.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/resources/estudiantes_exportados.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/test/java/HogwartsDAOTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_4_OpenAPI/ApiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_4_OpenAPI/CsvExporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_4_OpenAPI/DbExporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_4_OpenAPI/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_4_OpenAPI/SqlExporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_4_OpenAPI/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/R2-jdbc/src/test/java/ApiServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_2_Serializacion/Coche.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_2_Serializacion/Coche.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_2_Serializacion/JsonSerialize.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_2_Serializacion/JsonSerialize.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_3_Deserializacion/JsonCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_3_Deserializacion/JsonCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_4_ParsingJackson/JsonParserCsv.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_4_ParsingJackson/JsonParserCsv.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_5_GestionLibros/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_5_GestionLibros/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_5_GestionLibros/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_5_GestionLibros/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_5_GestionLibros/OperacionesJSON.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_5_GestionLibros/OperacionesJSON.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_6_OpenAPI/ApiService.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_6_OpenAPI/ApiService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_6_OpenAPI/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_6_OpenAPI/Language.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_6_OpenAPI/LanguageOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_6_OpenAPI/LanguageOperations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_6_OpenAPI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/java/R1_6_OpenAPI/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/resources/coche.json" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/resources/coche.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/resources/coches.json" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/main/resources/coches.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/test/R1_3_Deserializacion/JsonCsvTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/test/R1_3_Deserializacion/JsonCsvTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R1-serializacion-ficheros/src/test/R1_4_ParsingJackson/JsonParserCsvTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/R1-serializacion-ficheros/src/test/R1_4_ParsingJackson/JsonParserCsvTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/R2-jdbc/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/R2-jdbc/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_2_JDBD_SQLite/Asignatura.java" beforeDir="false" afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_2_JDBC_MySQL/Asignatura.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_2_JDBD_SQLite/Calificacion.java" beforeDir="false" afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_2_JDBC_MySQL/Calificacion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_2_JDBD_SQLite/Casa.java" beforeDir="false" afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_2_JDBC_MySQL/Casa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_2_JDBD_SQLite/Estudiante.java" beforeDir="false" afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_2_JDBC_MySQL/Estudiante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_2_JDBD_SQLite/HogwartsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_2_JDBC_MySQL/HogwartsDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_2_JDBD_SQLite/Mascota.java" beforeDir="false" afterPath="$PROJECT_DIR$/R2-jdbc/src/main/java/R2_2_JDBC_MySQL/Mascota.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/R3-hibernate-jpa/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/R3-hibernate-jpa/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +51,9 @@
   &quot;associatedIndex&quot;: 5
 }</component>
   <component name="ProjectId" id="3416oNZKbMPj84PwWem0mhd4v3H" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -95,6 +75,7 @@
     "Application.exportador.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in Pt2.executor": "Run",
+    "JUnit.ApiServiceTest.executor": "Run",
     "JUnit.HogwartsDAOTest.executor": "Run",
     "JUnit.JsonCsvTest (1).executor": "Run",
     "JUnit.JsonCsvTest.executor": "Run",
@@ -128,7 +109,7 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Application.R2_3_BBDD_From_SQL.ExportadorDatos">
+  <component name="RunManager" selected="JUnit.ApiServiceTest">
     <configuration name="ExportadorDatos" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="exportador.ExportadorDatos" />
       <module name="R2-jdbc" />
@@ -142,12 +123,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HogwartsDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="R2_2_JDBC_MySQL.HogwartsDAO" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="R2_4_OpenAPI.Main" />
       <module name="R2-jdbc" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="R2_2_JDBC_MySQL.*" />
+          <option name="PATTERN" value="R2_4_OpenAPI.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -181,10 +162,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="HogwartsDAOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ApiServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="R2-jdbc" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="HogwartsDAOTest" />
+      <option name="MAIN_CLASS_NAME" value="ApiServiceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -192,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ApiServiceTest" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.R2_3_BBDD_From_SQL.ExportadorDatos" />
         <item itemvalue="Application.ExportadorDatos" />
         <item itemvalue="Application.exportador" />
-        <item itemvalue="JUnit.HogwartsDAOTest" />
-        <item itemvalue="Application.HogwartsDAO" />
       </list>
     </recent_temporary>
   </component>
@@ -232,6 +213,7 @@
       <workItem from="1761659051709" duration="100000" />
       <workItem from="1761659162726" duration="1111000" />
       <workItem from="1761669447877" duration="5605000" />
+      <workItem from="1761725861431" duration="4005000" />
     </task>
     <task id="LOCAL-00001" summary="Actualización ejercicios">
       <option name="closed" value="true" />
