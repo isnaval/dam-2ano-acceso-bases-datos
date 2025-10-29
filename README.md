@@ -1,48 +1,70 @@
-# ?? DAM 2º Año - Acceso a Bases de Datos
+# Acceso a Datos - DAM 2Âº AÃ±o
 
-Proyecto de ejercicios del módulo de Acceso a Datos organizados por bloques temáticos.
+Proyecto con ejercicios de acceso a bases de datos y manejo de ficheros.
 
-## ??? Estructura del Proyecto
+---
 
-### Módulos Principales
+## MÃ³dulos
 
-- **`common-utils/`** - Utilidades compartidas (HibernateUtil, DatabaseUtil, etc.)
-- **`R1-serializacion-ficheros/`** - Serialización, JSON, XML y gestión de ficheros
-- **`R2-jdbc/`** - Acceso a bases de datos con JDBC (MySQL y SQLite)
-- **`R3-hibernate-jpa/`** - ORM con Hibernate y JPA
+- **R1-serializacion-ficheros** - JSON, CSV, APIs
+- **R2-jdbc** - MySQL y SQLite
+- **R3-hibernate-jpa** - ORM con Hibernate
 
-## ?? Compilar y Ejecutar
+---
 
-### Compilar todo el proyecto
+## Requisitos
+
+- Java 21
+- Maven 3.x
+- MySQL (para R2 y R3)
+
+---
+
+## Uso
+
+### Compilar todo
 ```bash
 mvn clean install
 ```
 
-### Compilar un módulo específico
+### Ejecutar tests
 ```bash
-cd R1-serializacion-ficheros
-mvn clean compile
+mvn test
 ```
 
-### Ejecutar ejercicios
+### Ejecutar un programa
 ```bash
 cd R1-serializacion-ficheros
-mvn exec:java -Dexec.mainClass="es.dam.r1.jackson.Main"
+mvn exec:java -Dexec.mainClass="R1_2_Serializacion.Main"
 ```
 
-## ??? Tecnologías
+---
 
-- Java 17
-- Maven (multi-módulo)
-- Hibernate 6.x / JPA
+## TecnologÃ­as
+
+- Java 21
+- Maven
+- Jackson (JSON)
 - MySQL / SQLite
-- Jackson / Gson (JSON)
-- JUnit 5 (testing)
+- Hibernate / JPA
+- JUnit 5
 
-## ?? Documentación
+---
 
-Ver la carpeta `docs/` para más información.
+## Estructura
+```
+.
+â”œâ”€â”€ R1-serializacion-ficheros/
+â”œâ”€â”€ R2-jdbc/
+â””â”€â”€ R3-hibernate-jpa/
+```
 
-## ????? Autor
+---
 
-Proyecto educativo - DAM 2º Año
+## Autor
+
+Ismael - DAM 2Âº AÃ±o
+
+---
+
+**Fecha:** Octubre 2025
