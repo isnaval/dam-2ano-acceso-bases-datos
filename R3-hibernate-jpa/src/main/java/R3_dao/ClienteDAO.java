@@ -8,13 +8,21 @@ import java.util.List;
  * Define las operaciones CRUD (Create, Read, Update, Delete)
  */
 public interface ClienteDAO {
-
     List<Cliente> findAll();
     Cliente findById(Long id);
     Cliente create(Cliente cliente);
-    Cliente update (Cliente cliente);
+    Cliente update(Cliente cliente);
     boolean deleteById(Long id);
-    List<Cliente> findLastName(String lastName);
 
+    // Búsquedas
+    List<Cliente> findLastName(String lastName);
     List<Cliente> findByLastName(String lastName);
+
+    // ✅ Añadidos coherentes
+    List<Cliente> findByApellido(String apellido);
+    List<Cliente> findByApellidoParcial(String fragmento);
+
+    // ✅ Estadísticas
+    long countClientes();
+    double promedioEdad();
 }

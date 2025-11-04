@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- CONFIGURACIÓN DE CONEXIÓN A POSTGRESQL                  -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+
+        <!-- Driver de PostgreSQL -->
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+
+        <!-- URL de conexión - AJUSTA SI ES NECESARIO -->
+        <!-- jdbc:postgresql://localhost:PUERTO/NOMBRE_BASE_DATOS -->
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/bank2</property>
+
+        <!-- Usuario de PostgreSQL - AJUSTA SI ES NECESARIO -->
+        <property name="hibernate.connection.username">postgres</property>
+
+        <!-- Contraseña de PostgreSQL - AJUSTA SI ES NECESARIO -->
+        <property name="hibernate.connection.password">inv</property>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- CONFIGURACIÓN DE HIBERNATE                              -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+
+        <!-- Dialecto de PostgreSQL (para generar SQL correcto) -->
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+
+        <!-- Pool de conexiones (número de conexiones simultáneas) -->
+        <property name="hibernate.connection.pool_size">10</property>
+
+        <!-- Mostrar SQL en consola (útil para debug) -->
+        <property name="hibernate.show_sql">true</property>
+
+        <!-- Formatear SQL para que sea legible -->
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Actualización automática del esquema de BD -->
+        <!-- update: actualiza la estructura sin perder datos -->
+        <!-- create: borra y crea todo (¡CUIDADO! Pierdes datos) -->
+        <!-- validate: solo valida que coincida -->
+        <!-- none: no hace nada automáticamente -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- MAPEO DE ENTIDADES (tus clases Java)                    -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+
+        <!-- Registrar la entidad Cliente -->
+        <mapping class="R3_entities.Cliente"/>
+
+        <!-- Si tienes más entidades, agrégalas aquí: -->
+        <!-- <mapping class="R3_entities.Cuenta"/> -->
+        <!-- <mapping class="R3_entities.Transaccion"/> -->
+
+    </session-factory>
+</hibernate-configuration>

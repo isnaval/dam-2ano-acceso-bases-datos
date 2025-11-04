@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/EJERCICIOS.iml" filepath="$PROJECT_DIR$/EJERCICIOS.iml" />
       <module fileurl="file://$PROJECT_DIR$/R0/R0.iml" filepath="$PROJECT_DIR$/R0/R0.iml" />
       <module fileurl="file://$PROJECT_DIR$/R1/R1.iml" filepath="$PROJECT_DIR$/R1/R1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/R3-hibernate-jpa/R3-hibernate-jpa.iml" filepath="$PROJECT_DIR$/R3-hibernate-jpa/R3-hibernate-jpa.iml" />
     </modules>
   </component>
 </project>

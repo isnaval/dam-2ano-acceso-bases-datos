@@ -5,6 +5,8 @@ import org.junit.jupiter.api.*;
 
 import java.util.List;
 
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 /**
  * Clase de test para ClienteDAOImpl
  * Prueba todas las operaciones CRUD del DAO
@@ -57,7 +59,7 @@ public class ClienteDAOImplTest {
         // Buscar cliente con ID 1
         Cliente cliente1 = dao.findById(1L);
         System.out.println("Cliente ID 1: " + cliente1);
-        Assertions.assertNotNull(cliente1, "El cliente con ID 1 debería existir");
+        assertNotNull(cliente1, "El cliente con ID 1 debería existir");
 
         // Buscar cliente con ID 2
         Cliente cliente2 = dao.findById(2L);
@@ -75,31 +77,24 @@ public class ClienteDAOImplTest {
      */
     @Test
     @Order(3)
-    public void testCreate() {
-        System.out.println("\n--- Test 3: create() ---");
+    void testCreate() {
+        System.out.println("--- Test 3: create() ---");
 
-        // Crear un nuevo cliente
-        Cliente nuevoCliente = new Cliente(
-                "Lucía",
-                "Ramos",
-                "lucia.ramos@email.com",
-                26
-        );
+        long timestamp = System.currentTimeMillis();
+        String uniqueEmail = "test" + timestamp + "@email.com";
 
-        System.out.println("Creando cliente: " + nuevoCliente.getFirstName() + " " + nuevoCliente.getLastName());
+        System.out.println("Creando cliente: Test Usuario");
+        System.out.println("Email único: " + uniqueEmail + "\n");
 
-        // Insertar en la BD
-        Cliente clienteCreado = dao.create(nuevoCliente);
+        Cliente nuevo = new Cliente("Test", "Usuario", uniqueEmail, 25);
+        dao.create(nuevo);
 
-        // Verificar que se asignó un ID
-        Assertions.assertNotNull(clienteCreado.getId(), "El cliente debería tener un ID asignado");
-        System.out.println("Cliente creado con ID: " + clienteCreado.getId());
+        assertNotNull(nuevo.getId(), "El cliente debería tener un ID asignado");
+        System.out.println("✅ Cliente creado: " + nuevo.getFirstName() + " " + nuevo.getLastName());
+        System.out.println("Cliente creado con ID: " + nuevo.getId() + "\n");
     }
 
-    /**
-     * Test del método update()
-     * Actualiza un cliente existente
-     */
+
     @Test
     @Order(4)
     public void testUpdate() {
@@ -128,10 +123,7 @@ public class ClienteDAOImplTest {
         }
     }
 
-    /**
-     * Test del método deleteById()
-     * Prueba eliminar clientes por ID
-     */
+
     @Test
     @Order(5)
     public void testDeleteById() {
@@ -160,10 +152,6 @@ public class ClienteDAOImplTest {
         Assertions.assertFalse(eliminadoNoExiste, "No se debería poder eliminar un cliente que no existe");
     }
 
-    /**
-     * Test del método findByLastName()
-     * Busca clientes por apellido
-     */
     @Test
     @Order(6)
     public void testFindByLastName() {
@@ -183,9 +171,7 @@ public class ClienteDAOImplTest {
                 "No debería haber clientes con apellido 'NoExiste'");
     }
 
-    /**
-     * Se ejecuta una vez después de todos los tests
-     */
+
     @AfterAll
     public static void tearDownClass() {
         System.out.println("\n========================================");

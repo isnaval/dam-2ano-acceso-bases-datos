@@ -8,32 +8,23 @@ import util.HibernateUtil;
 public class ClienteTest {
     @Test
     void createTablesTest() {
-
-        // Crear 2 o 3 objetos Cliente de prueba
-        Cliente cliente1 = new Cliente("Juan", "Pérez", "juan.perez@email.com", 30);
-        Cliente cliente2 = new Cliente("María", "García", "maria.garcia@email.com", 25);
-        Cliente cliente3 = new Cliente("Carlos", "López", "carlos.lopez@email.com", 35);
-
-        // Obtener SessionFactory
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();  // ✅
+        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
         Session session = sessionFactory.openSession();
 
-        // Iniciar transacción
         session.beginTransaction();
 
-        // Persistir los clientes
-        session.persist(cliente1);
-        session.persist(cliente2);
-        session.persist(cliente3);
+        // Usar timestamp para emails únicos
+        long timestamp = System.currentTimeMillis();
 
-        // Hacer commit de la transacción
+        // Crear clientes de prueba con emails únicos
+        session.persist(new Cliente("Juan", "Pérez", "juan" + timestamp + "@email.com", 30));
+        session.persist(new Cliente("María", "García", "maria" + timestamp + "@email.com", 25));
+        session.persist(new Cliente("Carlos", "López", "carlos" + timestamp + "@email.com", 35));
+
         session.getTransaction().commit();
-
-        // Cerrar sesión
         session.close();
-        sessionFactory.close();
-        HibernateUtil.shutdown();
 
-        System.out.println("Test completado: 3 clientes insertados en la base de datos");
+        System.out.println("✅ Test completado: 3 clientes insertados en la base de datos");
+        System.out.println("✅ Emails únicos generados con timestamp: " + timestamp);
     }
 }
