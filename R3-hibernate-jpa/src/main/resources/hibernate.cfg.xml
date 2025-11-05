@@ -52,6 +52,7 @@
 
         <!-- Registrar la entidad Cliente -->
         <mapping class="R3_entities.Cliente"/>
+        <mapping class="R3_entities.Cuenta"/>
 
         <!-- Si tienes más entidades, agrégalas aquí: -->
         <!-- <mapping class="R3_entities.Cuenta"/> -->

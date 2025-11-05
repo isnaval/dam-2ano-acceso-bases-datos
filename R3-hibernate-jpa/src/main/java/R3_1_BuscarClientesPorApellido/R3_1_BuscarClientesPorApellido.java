@@ -29,9 +29,6 @@ public class R3_1_BuscarClientesPorApellido {
     scanner.close();
   }
 
-
-
-
     private static void mostrarBienvenida() {
         System.out.println("=== BUSCAR CLIENTES POR APELLIDO ===");
     }

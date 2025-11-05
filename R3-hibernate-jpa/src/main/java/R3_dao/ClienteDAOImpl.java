@@ -10,20 +10,26 @@ import java.util.List;
 
 public class ClienteDAOImpl implements ClienteDAO {
 
+    // ========== CRUD BÁSICO ==========
+
     @Override
     public List<Cliente> findAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        List<Cliente> clientes = session.createQuery("from Cliente", Cliente.class).list();
-        session.close();
-        return clientes;
+        try {
+            return session.createQuery("FROM Cliente", Cliente.class).list();
+        } finally {
+            session.close();
+        }
     }
 
     @Override
     public Cliente findById(Long id) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Cliente cliente = session.find(Cliente.class, id);
-        session.close();
-        return cliente;
+        try {
+            return session.find(Cliente.class, id);
+        } finally {
+            session.close();
+        }
     }
 
     @Override
@@ -33,9 +39,9 @@ public class ClienteDAOImpl implements ClienteDAO {
             session.beginTransaction();
             session.persist(cliente);
             session.getTransaction().commit();
-            System.out.println("OK: Cliente creado: " + cliente.getFirstName() + " " + cliente.getLastName());
+            System.out.println("✅ Cliente creado: " + cliente.getFirstName() + " " + cliente.getLastName());
         } catch (HibernateException e) {
-            System.err.println("ERROR al crear cliente: " + e.getMessage());
+            System.err.println("❌ Error al crear cliente: " + e.getMessage());
             if (session.getTransaction() != null) session.getTransaction().rollback();
         } finally {
             session.close();
@@ -51,9 +57,9 @@ public class ClienteDAOImpl implements ClienteDAO {
             session.beginTransaction();
             clienteActualizado = session.merge(cliente);
             session.getTransaction().commit();
-            System.out.println("OK: Cliente actualizado: " + clienteActualizado.getFirstName() + " " + clienteActualizado.getLastName());
+            System.out.println("✅ Cliente actualizado: " + clienteActualizado.getFirstName());
         } catch (HibernateException e) {
-            System.err.println("ERROR al actualizar cliente: " + e.getMessage());
+            System.err.println("❌ Error al actualizar: " + e.getMessage());
             if (session.getTransaction() != null) session.getTransaction().rollback();
         } finally {
             session.close();
@@ -72,13 +78,12 @@ public class ClienteDAOImpl implements ClienteDAO {
                 session.remove(cliente);
                 session.getTransaction().commit();
                 eliminado = true;
-                System.out.println("OK: Cliente eliminado: " + cliente.getFirstName() + " " + cliente.getLastName());
+                System.out.println("✅ Cliente eliminado: " + cliente.getFirstName());
             } else {
-                System.out.println("AVISO: No existe cliente con ID: " + id);
-                session.getTransaction().rollback();
+                System.out.println("⚠️ No existe cliente con ID: " + id);
             }
         } catch (HibernateException e) {
-            System.err.println("ERROR al eliminar cliente: " + e.getMessage());
+            System.err.println("❌ Error al eliminar: " + e.getMessage());
             if (session.getTransaction() != null) session.getTransaction().rollback();
         } finally {
             session.close();
@@ -86,52 +91,144 @@ public class ClienteDAOImpl implements ClienteDAO {
         return eliminado;
     }
 
-    @Override
-    public List<Cliente> findLastName(String lastName) {
-        return List.of();
-    }
+    // ========== BÚSQUEDAS SIMPLES ==========
 
     @Override
     public List<Cliente> findByLastName(String lastName) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Query<Cliente> query = session.createQuery("from Cliente where lastName = :lastName", Cliente.class);
-        query.setParameter("lastName", lastName);
-        List<Cliente> clientes = query.list();
-        session.close();
-        return clientes;
+        try {
+            return session.createQuery(
+                            "FROM Cliente WHERE lastName = :lastName", Cliente.class)
+                    .setParameter("lastName", lastName)
+                    .list();
+        } finally {
+            session.close();
+        }
     }
 
-    public List<Cliente> findByApellido(String apellido) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        List<Cliente> clientes = session.createQuery(
-                        "from Cliente c where c.apellido = :apellido", Cliente.class)
-                .setParameter("apellido", apellido)
-                .list();
-        session.close();
-        return clientes;
-    }
-
+    @Override
     public List<Cliente> findByApellidoParcial(String fragmento) {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        List<Cliente> clientes = session.createQuery(
-                        "from Cliente c where lower(c.apellido) like :fragmento", Cliente.class)
-                .setParameter("fragmento", "%" + fragmento.toLowerCase() + "%")
-                .list();
-        session.close();
-        return clientes;
+        try {
+            return session.createQuery(
+                            "FROM Cliente WHERE LOWER(lastName) LIKE :fragmento", Cliente.class)
+                    .setParameter("fragmento", "%" + fragmento.toLowerCase() + "%")
+                    .list();
+        } finally {
+            session.close();
+        }
     }
 
+    @Override
+    public List<Cliente> findByApellido(String apellido) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            return session.createQuery(
+                            "FROM Cliente WHERE lastName = :apellido", Cliente.class)
+                    .setParameter("apellido", apellido)
+                    .list();
+        } finally {
+            session.close();
+        }
+    }
+
+    // ========== ESTADÍSTICAS ==========
+
+    @Override
     public long countClientes() {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Long count = session.createQuery("select count(c) from Cliente c", Long.class).uniqueResult();
-        session.close();
-        return count != null ? count : 0;
+        try {
+            Long count = session.createQuery(
+                            "SELECT COUNT(c) FROM Cliente c", Long.class)
+                    .uniqueResult();
+            return count != null ? count : 0;
+        } finally {
+            session.close();
+        }
     }
 
+    @Override
     public double promedioEdad() {
         Session session = HibernateUtil.getSessionFactory().openSession();
-        Double avg = session.createQuery("select avg(c.edad) from Cliente c", Double.class).uniqueResult();
-        session.close();
-        return avg != null ? avg : 0.0;
+        try {
+            Double avg = session.createQuery(
+                            "SELECT AVG(c.edad) FROM Cliente c", Double.class)
+                    .uniqueResult();
+            return avg != null ? avg : 0.0;
+        } finally {
+            session.close();
+        }
+    }
+
+    // ========== CONSULTAS COMPUESTAS (R3_3) ==========
+
+    @Override
+    public List<Cliente> findByLastNameOR(String apellido1, String apellido2) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            return session.createQuery(
+                            "FROM Cliente WHERE lastName = :ap1 OR lastName = :ap2", Cliente.class)
+                    .setParameter("ap1", apellido1)
+                    .setParameter("ap2", apellido2)
+                    .list();
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<Cliente> findByLastNameAndAgeGreaterThan(String apellido, int edad) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            return session.createQuery(
+                            "FROM Cliente WHERE lastName = :ap AND edad > :edad", Cliente.class)
+                    .setParameter("ap", apellido)
+                    .setParameter("edad", edad)
+                    .list();
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<Cliente> findByLastNameAndAgeLessThan(String apellido, int edad) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            return session.createQuery(
+                            "FROM Cliente WHERE lastName = :ap AND edad < :edad", Cliente.class)
+                    .setParameter("ap", apellido)
+                    .setParameter("edad", edad)
+                    .list();
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<Cliente> findByAgeBetween(int edadMin, int edadMax) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            return session.createQuery(
+                            "FROM Cliente WHERE edad BETWEEN :min AND :max", Cliente.class)
+                    .setParameter("min", edadMin)
+                    .setParameter("max", edadMax)
+                    .list();
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public List<Cliente> findByLastNameOrAgeGreaterThan(String apellido, int edad) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        try {
+            return session.createQuery(
+                            "FROM Cliente WHERE lastName = :ap OR edad > :edad", Cliente.class)
+                    .setParameter("ap", apellido)
+                    .setParameter("edad", edad)
+                    .list();
+        } finally {
+            session.close();
+        }
     }
 }
